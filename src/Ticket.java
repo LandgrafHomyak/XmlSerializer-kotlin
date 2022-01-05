@@ -1,3 +1,4 @@
+@ClassAnnotation("ticket")
 public class Ticket {
     @FieldAnnotation("number")
     private int number;

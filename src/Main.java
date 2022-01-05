@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws IllegalAccessException, IOException {
         ArrayList<Object> instances = new ArrayList<>();
-        Converter converter = new Converter();
+        Converter converter = new Converter("catalog");
         Ticket ballet = new Ticket(1, "Балет 'Щелкунчик'", "15/01/2022", "19:00",
                 "6000 руб.", "Бенуар", 4, 22);
         Ticket opera = new Ticket(2, "Опера 'Иван Сусанин'", "16/01/2022", "19:00",
