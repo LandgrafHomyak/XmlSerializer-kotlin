@@ -17,9 +17,11 @@ public class Converter {
     public void reflection(ArrayList instances) throws IllegalAccessException {
         for(Object instance: instances) {
 
+            /** Добавление тега-потомка соответствующего названию класса */
             String className = instance.getClass().getAnnotation(ClassAnnotation.class).value();
             xmlList.add("<"+className+">");
 
+            /** Добавление тегов-подпотомков */
             for (Field field : instance.getClass().getDeclaredFields()) {
                 FieldAnnotation annotation = field.getAnnotation(FieldAnnotation.class);
                 if (annotation != null) {
@@ -29,8 +31,10 @@ public class Converter {
             }
 
             xmlList.add("</"+className+">");
-
         }
+
+        /** Добавление корневого тега и сдвиг в случае, если описывается несколько объектов,
+         * иначе корневым тегом является добавленный ранее тег-потомок*/
         if (instances.size() > 1){
             for(String str : xmlList){
                 xmlList.set(xmlList.indexOf(str), "    "+str);

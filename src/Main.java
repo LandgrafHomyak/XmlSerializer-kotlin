@@ -14,10 +14,14 @@ public class Main {
 
         Path file = Paths.get("MyXML.xml");
 
+        /** Добавление объектов в список, который будет обработан корвертером */
         instances.add(ballet);
         instances.add(opera);
 
+        /** Создание списков строк для файлов различных форматов {@link Converter#reflection(ArrayList)} */
         converter.reflection(instances);
+
+        /** Запись в файлы соответствующих форматов {@link Converter#writeXML(Path)}*/
         converter.writeXML(file);
     }
 }
